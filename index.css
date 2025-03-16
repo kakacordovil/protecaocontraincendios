@@ -336,7 +336,17 @@
 }
 
 .u-section-2 .u-image-1 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("images/235.jpg");
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("images/man-looks-seguranca-protecao-contra-incendios.jpg");
+  background-position: 50% 50%;
+  --animation-custom_in-translate_x: 0px;
+  --animation-custom_in-translate_y: 300px;
+  --animation-custom_in-opacity: 0;
+  --animation-custom_in-rotate: 0deg;
+  --animation-custom_in-scale: 1;
+}
+
+.u-section-2 .u-image-1-2 {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("images/fire-alarm-hand-station-protecao-seguranca-contra-incendios.jpg");
   background-position: 50% 50%;
   --animation-custom_in-translate_x: 0px;
   --animation-custom_in-translate_y: 300px;
@@ -480,7 +490,7 @@
     padding-right: 20px;
   }
 } .u-section-3 {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('images/32423.jpg');
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://img.freepik.com/premium-photo/bright-red-fire-alarm-is-mounted-wall-signaling-urgency-bustling-indoor-space-filled-with-people-generative-ai_262708-48358.jpg?w=1380');
 }
 
 .u-section-3 .u-sheet-1 {
