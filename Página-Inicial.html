@@ -137,7 +137,7 @@
               <strong>Telefone:</strong> 22 951 2013</p>
               <div class="u-expanded-width u-form u-form-1">
  
-                <form action="https://formsubmit.co/03786d8cea531b6ecb723d8dda6db088" method="POST"
+                <form action="https://formsubmit.co/03786d8cea531b6ecb723d8dda6db088" method="POST" target="_self" 
   class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 0;" name="form">
   
   <!-- Nome -->
@@ -179,7 +179,7 @@
   </button>
 
   <!-- Mensagem de sucesso customizada -->
-  <input type="hidden" name="_next" value="https://kakacordovil.github.io/protecaocontraincendios/P%C3%A1gina-Inicial.html?success=true">
+  <!--input type="hidden" name="_next" value="https://kakacordovil.github.io/protecaocontraincendios/P%C3%A1gina-Inicial.html?success=true"-->
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="box">
 </form>
@@ -212,7 +212,34 @@
 </section>
 
 <script>
-  // Função para mostrar popup
+  function handleSubmit(event) {
+    event.preventDefault(); // Impede o envio imediato
+
+    // Envia o formulário manualmente
+    const form = event.target;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        showSuccessPopup();
+        setTimeout(() => {
+          window.location.href = 'Página-Inicial.html'; // ou a que deseja
+        }, 3000);
+      } else {
+        alert("Erro ao enviar mensagem. Tente novamente.");
+      }
+    })
+    .catch(() => {
+      alert("Erro de conexão. Tente novamente mais tarde.");
+    });
+  }
+
   function showSuccessPopup() {
     const popup = document.createElement('div');
     popup.textContent = "Mensagem enviada com sucesso!";
@@ -233,16 +260,7 @@
     setTimeout(() => {
       popup.style.opacity = '0';
       setTimeout(() => document.body.removeChild(popup), 500);
-    }, 3500);
-  }
-
-  // Verifica se veio da submissão do FormSubmit
-  if (window.location.search.includes("success=true")) {
-    showSuccessPopup();
-    // Redireciona após 4 segundos
-    setTimeout(() => {
-      window.location.href = "Página-Inicial.html"; // ou outra que queiras
-    }, 4000);
+    }, 2500);
   }
 </script>
 
