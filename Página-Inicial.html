@@ -175,12 +175,16 @@
   </div>
 
   <!-- Botão -->
-  <button class="g-recaptcha u-active-grey-75 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-grey-75 u-palette-3-base u-radius-50 u-btn-1"
+  <button type="submit"
+        id="submit-button"
+        disabled
+        class="g-recaptcha u-active-grey-75 u-border-none u-btn u-btn-round u-btn-submit u-button-style u-hover-grey-75 u-palette-3-base u-radius-50 u-btn-1"
         data-sitekey="6Lezh_8qAAAAAKLQ5BTcaO5srdmMh_Rn1XkvQYfE"
         data-callback="onSubmit"
         data-action="submit">
     Enviar
   </button>
+
   
   <!-- Mensagem de sucesso customizada -->
   <!--input type="hidden" name="_next" value="https://kakacordovil.github.io/protecaocontraincendios/P%C3%A1gina-Inicial.html?success=true"-->
@@ -216,6 +220,16 @@
 </section>
 
 <script>
+  // Habilita ou desabilita o botão de envio baseado no checkbox dos termos
+  document.addEventListener('DOMContentLoaded', function () {
+    const checkbox = document.getElementById('agree');
+    const submitBtn = document.getElementById('submit-button');
+
+    checkbox.addEventListener('change', function () {
+      submitBtn.disabled = !this.checked;
+    });
+  });
+
   function handleSubmit(event) {
     event.preventDefault(); // Impede o envio imediato
 
