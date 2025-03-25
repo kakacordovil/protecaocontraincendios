@@ -179,7 +179,7 @@
   </button>
 
   <!-- Mensagem de sucesso customizada -->
-  <input type="hidden" name="_next" value="https://kakacordovil.github.io/protecaocontraincendios/P%C3%A1gina-Inicial.html">
+  <input type="hidden" name="_next" value="https://kakacordovil.github.io/protecaocontraincendios/P%C3%A1gina-Inicial.html?success=true">
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="box">
 </form>
@@ -210,6 +210,41 @@
     </a>
   </p>
 </section>
+
+<script>
+  // Função para mostrar popup
+  function showSuccessPopup() {
+    const popup = document.createElement('div');
+    popup.textContent = "Mensagem enviada com sucesso!";
+    popup.style.position = 'fixed';
+    popup.style.top = '20px';
+    popup.style.right = '20px';
+    popup.style.backgroundColor = '#28a745';
+    popup.style.color = '#fff';
+    popup.style.padding = '15px 25px';
+    popup.style.borderRadius = '8px';
+    popup.style.fontSize = '16px';
+    popup.style.zIndex = '9999';
+    popup.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+    popup.style.transition = 'opacity 0.5s ease';
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+      popup.style.opacity = '0';
+      setTimeout(() => document.body.removeChild(popup), 500);
+    }, 3500);
+  }
+
+  // Verifica se veio da submissão do FormSubmit
+  if (window.location.search.includes("success=true")) {
+    showSuccessPopup();
+    // Redireciona após 4 segundos
+    setTimeout(() => {
+      window.location.href = "Página-Inicial.html"; // ou outra que queiras
+    }, 4000);
+  }
+</script>
 
 </body>
 
